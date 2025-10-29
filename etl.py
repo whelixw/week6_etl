@@ -1,6 +1,11 @@
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple, Union
+from pathlib import Path
+from datetime import datetime, timezone
+import shutil
 import pandas as pd
 from sqlalchemy import text, types, create_engine
+
+# -------------------- CONNECTION/CONSTANTS --------------------
 
 #load user and password from file
 with open("db_credentials.txt", "r") as f:
@@ -16,17 +21,17 @@ engine = create_engine(
     pool_pre_ping=True,
 )
 
-
 VARCHAR_LEN = 191  # safer for utf8mb4 indexed columns in MySQL
+ARCHIVE_ROOT = Path("archive")
 
 
 # -------------------- UTILITIES --------------------
 
-def _q(name: str) -> str: #quote string for sql
+def _q(name: str) -> str:
     return f"`{name}`"
 
 
-def _cols(cols: Sequence[str]) -> str: #
+def _cols(cols: Sequence[str]) -> str:
     return ", ".join(_q(c) for c in cols)
 
 
@@ -41,6 +46,23 @@ def normalize_strings(df: pd.DataFrame, columns: Iterable[str]) -> pd.DataFrame:
         if c in df.columns:
             df[c] = df[c].astype("string").str.strip()
     return df
+
+
+def floor_to_minute_utc(dt: Optional[datetime] = None) -> datetime:
+    """
+    Returns a naive datetime in UTC, rounded down to minute precision.
+    """
+    if dt is None:
+        dt = datetime.now(timezone.utc)
+    dt = dt.astimezone(timezone.utc)
+    return dt.replace(second=0, microsecond=0, tzinfo=None)
+
+
+def ts_folder_name(ts: datetime) -> str:
+    """
+    Convert a run timestamp into a folder-friendly name like 2025-10-29_1200.
+    """
+    return ts.strftime("%Y-%m-%d_%H%M")
 
 
 def load_to_sql(
@@ -118,38 +140,47 @@ def load_to_sql(
 
 # -------------------- EXTRACT --------------------
 
-def extract() -> Dict[str, pd.DataFrame]:
-    # Base CSVs
-    brands = pd.read_csv("data_setup/Data CSV/brands.csv")
-    categories = pd.read_csv("data_setup/Data CSV/categories.csv")
-    products = pd.read_csv("data_setup/Data CSV/products.csv")
-    staff_raw = pd.read_csv("data_setup/Data CSV/staffs.csv")
-    stocks = pd.read_csv("data_setup/Data CSV/stocks.csv")
-    stores = pd.read_csv("data_setup/Data CSV/stores.csv")
+def extract() -> Tuple[Dict[str, pd.DataFrame], Dict[str, Path]]:
+    """
+    Read all inputs and return:
+    - raw_dfs: dataset key -> DataFrame
+    - source_files: dataset key -> source Path (for archiving)
+    """
+    # Base CSVs (relative paths preserved for archiving)
+    base_root = Path("data_setup") / "Data CSV"
+    api_root = Path("csvs_from_api")
 
-    # API CSVs
-    customers = pd.read_csv("csvs_from_api/customers.csv")
-    order_items = pd.read_csv("csvs_from_api/order_items.csv")
-    orders = pd.read_csv("csvs_from_api/orders.csv")
-
-    return {
-        "brands": brands,
-        "categories": categories,
-        "products": products,
-        "staff_raw": staff_raw,  # raw, becomes 'staff' in transform
-        "stocks": stocks,
-        "stores": stores,
-        "customers": customers,
-        "order_items": order_items,
-        "orders": orders,
+    source_files: Dict[str, Path] = {
+        "brands": base_root / "brands.csv",
+        "categories": base_root / "categories.csv",
+        "products": base_root / "products.csv",
+        "staff_raw": base_root / "staffs.csv",  # raw -> staff
+        "stocks": base_root / "stocks.csv",
+        "stores": base_root / "stores.csv",
+        "customers": api_root / "customers.csv",
+        "order_items": api_root / "order_items.csv",
+        "orders": api_root / "orders.csv",
     }
+
+    raw_dfs: Dict[str, pd.DataFrame] = {}
+    for key, path in source_files.items():
+        raw_dfs[key] = pd.read_csv(path)
+
+    return raw_dfs, source_files
 
 
 # -------------------- TRANSFORM --------------------
 
 def transform(
-    raw: Dict[str, pd.DataFrame]
+    raw: Dict[str, pd.DataFrame],
+    run_ts: datetime,
 ) -> Tuple[Dict[str, pd.DataFrame], Dict[str, Dict[str, Any]]]:
+    """
+    Apply renames, type fixes, and add last_updated with minute precision.
+    """
+    # Ensure naive UTC minute precision for storage
+    run_ts_minute = floor_to_minute_utc(run_ts)
+
     brands = raw["brands"].copy()
     categories = raw["categories"].copy()
     products = raw["products"].copy()
@@ -160,25 +191,25 @@ def transform(
     stocks = raw["stocks"].copy()
     staff = raw["staff_raw"].copy()
 
-    # Column renames for consistency
+    # Consistent naming:
     # - stores.name -> store_name
     if "name" in stores.columns:
         stores = stores.rename(columns={"name": "store_name"})
-    # - orders.store -> store_name; orders.staff_name -> staff_first_name
+    # - orders.store -> store_name; staff_name -> staff_first_name
     orders = orders.rename(
         columns={"store": "store_name", "staff_name": "staff_first_name"}
     )
-    # - staff: table 'staffs' -> 'staff'; name -> staff_first_name; last_name -> staff_last_name
+    # - staff: name -> staff_first_name; last_name -> staff_last_name
     staff = staff.rename(
         columns={"name": "staff_first_name", "last_name": "staff_last_name"}
     )
-    # If any legacy column in stocks uses 'store' or 'name', normalize to store_name
+    # Normalize any stocks column variants to store_name
     if "store" in stocks.columns and "store_name" not in stocks.columns:
         stocks = stocks.rename(columns={"store": "store_name"})
     if "name" in stocks.columns and "store_name" not in stocks.columns:
         stocks = stocks.rename(columns={"name": "store_name"})
 
-    # Datetime parsing for orders
+    # Parse order datetimes (DD/MM/YYYY), shipped_date can be empty
     if "order_date" in orders.columns:
         orders["order_date"] = pd.to_datetime(
             orders["order_date"], format="%d/%m/%Y"
@@ -224,15 +255,31 @@ def transform(
             .reset_index(drop=True)
         )
 
-    # DTYPE map with new consistent names
+    # Add last_updated (same run timestamp across all initialized data)
+    for df in [
+        brands,
+        categories,
+        products,
+        customers,
+        stores,
+        staff,
+        orders,
+        order_items,
+        stocks,
+    ]:
+        df["last_updated"] = run_ts_minute
+
+    # DTYPE map with new consistent names + last_updated
     dtypes: Dict[str, Dict[str, Any]] = {
         "brands": {
             "brand_id": types.Integer(),
             "brand_name": types.String(VARCHAR_LEN),
+            "last_updated": types.DateTime(),
         },
         "categories": {
             "category_id": types.Integer(),
             "category_name": types.String(VARCHAR_LEN),
+            "last_updated": types.DateTime(),
         },
         "products": {
             "product_id": types.Integer(),
@@ -241,6 +288,7 @@ def transform(
             "category_id": types.Integer(),
             "model_year": types.Integer(),
             "listed_price": types.Float(),
+            "last_updated": types.DateTime(),
         },
         "customers": {
             "customer_id": types.Integer(),
@@ -252,6 +300,7 @@ def transform(
             "city": types.String(VARCHAR_LEN),
             "state": types.String(50),
             "zip_code": types.String(20),
+            "last_updated": types.DateTime(),
         },
         "stores": {
             "store_name": types.String(VARCHAR_LEN),
@@ -261,6 +310,7 @@ def transform(
             "city": types.String(VARCHAR_LEN),
             "state": types.String(50),
             "zip_code": types.String(20),
+            "last_updated": types.DateTime(),
         },
         "staff": {
             "staff_first_name": types.String(VARCHAR_LEN),
@@ -270,6 +320,7 @@ def transform(
             "active": types.Boolean(),
             "store_name": types.String(VARCHAR_LEN),
             "manager_id": types.Integer(),
+            "last_updated": types.DateTime(),
         },
         "orders": {
             "order_id": types.Integer(),
@@ -280,6 +331,7 @@ def transform(
             "shipped_date": types.DateTime(),
             "store_name": types.String(VARCHAR_LEN),
             "staff_first_name": types.String(VARCHAR_LEN),
+            "last_updated": types.DateTime(),
         },
         "order_items": {
             "order_id": types.Integer(),
@@ -288,11 +340,13 @@ def transform(
             "quantity": types.Integer(),
             "list_price": types.Float(),
             "discount": types.Float(),
+            "last_updated": types.DateTime(),
         },
         "stocks": {
             "product_id": types.Integer(),
             "store_name": types.String(VARCHAR_LEN),
             "quantity": types.Integer(),
+            "last_updated": types.DateTime(),
         },
     }
 
@@ -381,7 +435,7 @@ def load_staff(df: pd.DataFrame, dtypes: Dict[str, Dict[str, Any]]) -> None:
         unique=[("staff_first_name", "staff_last_name", "email", "store_name")],
         dtype=dtypes["staff"],
     )
-    # Note: no FK for staff.store_name or staff_first_name
+    # Note: no FK for staff.store_name or staff_first_name.
 
 
 def load_orders(df: pd.DataFrame, dtypes: Dict[str, Dict[str, Any]]) -> None:
@@ -484,9 +538,33 @@ def load(dfs: Dict[str, pd.DataFrame], dtypes: Dict[str, Dict[str, Any]]) -> Non
     print("\nAll data loaded successfully!")
 
 
+# -------------------- ARCHIVE INPUTS --------------------
+
+def archive_inputs(
+    source_files: Dict[str, Path],
+    run_ts: datetime,
+    archive_root: Path = ARCHIVE_ROOT,
+) -> None:
+    """
+    Move processed CSVs into a timestamped folder, preserving relative structure.
+    """
+    ts_dir = archive_root / ts_folder_name(run_ts)
+    for key, src in source_files.items():
+        try:
+            dest = ts_dir / src
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(src), str(dest))
+            print(f"Archived {src} -> {dest}")
+        except FileNotFoundError:
+            # If a file is already moved or missing, skip gracefully.
+            print(f"Warning: source file not found, skipping: {src}")
+
+
 # -------------------- RUN ETL --------------------
 
 if __name__ == "__main__":
-    raw_dfs = extract()
-    dfs, dtypes = transform(raw_dfs)
+    run_ts = floor_to_minute_utc()
+    raw_dfs, source_files = extract()
+    dfs, dtypes = transform(raw_dfs, run_ts)
     load(dfs, dtypes)
+    archive_inputs(source_files, run_ts)
