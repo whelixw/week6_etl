@@ -1,0 +1,184 @@
+version: 1
+
+paths:
+  data_root: data
+  archive_root: archive
+
+db:
+  driver: mysql+pymysql
+  host: 127.0.0.1
+  port: 3307
+  database: mydb
+  # Reads first two lines as user and password, respectively
+  credentials_file: db_credentials.txt
+  pool_pre_ping: true
+
+sql:
+  # Default length for String columns unless overridden per column
+  varchar_len: 191
+
+# Load/Upsert processing order to respect FK dependencies
+# brands, categories -> products
+# customers, stores -> orders
+# orders, products -> order_items
+# stores, products -> stocks
+load_sequence:
+  - brands
+  - categories
+  - customers
+  - stores
+  - products
+  - staff
+  - orders
+  - order_items
+  - stocks
+
+datasets:
+  brands:
+    file: brands.csv
+    table: brands
+    key_columns: [brand_id]
+    primary_key: [brand_id]
+    unique_constraints: []
+    foreign_keys: []
+    dtype:
+      brand_id: { type: Integer }
+      brand_name: { type: String } # uses sql.varchar_len by default
+      last_updated: { type: DateTime }
+
+  categories:
+    file: categories.csv
+    table: categories
+    key_columns: [category_id]
+    primary_key: [category_id]
+    unique_constraints: []
+    foreign_keys: []
+    dtype:
+      category_id: { type: Integer }
+      category_name: { type: String }
+      last_updated: { type: DateTime }
+
+  products:
+    file: products.csv
+    table: products
+    key_columns: [product_id]
+    primary_key: [product_id]
+    unique_constraints: []
+    foreign_keys:
+      - { columns: [brand_id], ref_table: brands, ref_columns: [brand_id], on_delete: RESTRICT, on_update: CASCADE }
+      - { columns: [category_id], ref_table: categories, ref_columns: [category_id], on_delete: RESTRICT, on_update: CASCADE }
+    dtype:
+      product_id: { type: Integer }
+      product_name: { type: String }
+      brand_id: { type: Integer }
+      category_id: { type: Integer }
+      model_year: { type: Integer }
+      list_price: { type: Float }
+      last_updated: { type: DateTime }
+
+  customers:
+    file: customers.csv
+    table: customers
+    key_columns: [customer_id]
+    primary_key: [customer_id]
+    unique_constraints: []
+    foreign_keys: []
+    dtype:
+      customer_id: { type: Integer }
+      first_name: { type: String }
+      last_name: { type: String }
+      phone: { type: String, length: 50 }
+      email: { type: String }
+      street: { type: String }
+      city: { type: String }
+      state: { type: String, length: 50 }
+      zip_code: { type: String, length: 20 }
+      last_updated: { type: DateTime }
+
+  stores:
+    file: stores.csv
+    table: stores
+    key_columns: [store_name]
+    primary_key: [store_name]
+    unique_constraints: []
+    foreign_keys: []
+    dtype:
+      store_name: { type: String }
+      phone: { type: String, length: 50 }
+      email: { type: String }
+      street: { type: String }
+      city: { type: String }
+      state: { type: String, length: 50 }
+      zip_code: { type: String, length: 20 }
+      last_updated: { type: DateTime }
+
+  staff:
+    file: staffs.csv     # source file name
+    table: staff
+    key_columns: [staff_first_name, staff_last_name, phone, email]
+    primary_key: []      # no primary key; use unique constraint on natural key
+    unique_constraints:
+      - [staff_first_name, staff_last_name, phone, email]
+    foreign_keys: []     # no FKs for staff in current model
+    dtype:
+      staff_first_name: { type: String }
+      staff_last_name: { type: String }
+      email: { type: String }
+      phone: { type: String, length: 50 }
+      active: { type: Boolean }
+      store_name: { type: String }
+      manager_id: { type: Integer }
+      last_updated: { type: DateTime }
+
+  orders:
+    file: orders.csv
+    table: orders
+    key_columns: [order_id]
+    primary_key: [order_id]
+    unique_constraints: []
+    foreign_keys:
+      - { columns: [customer_id], ref_table: customers, ref_columns: [customer_id], on_delete: RESTRICT, on_update: CASCADE }
+      - { columns: [store_name], ref_table: stores, ref_columns: [store_name], on_delete: RESTRICT, on_update: CASCADE }
+    dtype:
+      order_id: { type: Integer }
+      customer_id: { type: Integer }
+      order_status: { type: String, length: 50 }
+      order_date: { type: DateTime }
+      required_date: { type: DateTime }
+      shipped_date: { type: DateTime }
+      store_name: { type: String }
+      staff_first_name: { type: String }
+      last_updated: { type: DateTime }
+
+  order_items:
+    file: order_items.csv
+    table: order_items
+    key_columns: [order_id, item_id]
+    primary_key: [order_id, item_id]
+    unique_constraints: []
+    foreign_keys:
+      - { columns: [order_id], ref_table: orders, ref_columns: [order_id], on_delete: CASCADE, on_update: CASCADE }
+      - { columns: [product_id], ref_table: products, ref_columns: [product_id], on_delete: RESTRICT, on_update: CASCADE }
+    dtype:
+      order_id: { type: Integer }
+      item_id: { type: Integer }
+      product_id: { type: Integer }
+      quantity: { type: Integer }
+      list_price: { type: Float }
+      discount: { type: Float }
+      last_updated: { type: DateTime }
+
+  stocks:
+    file: stocks.csv
+    table: stocks
+    key_columns: [store_name, product_id]
+    primary_key: [store_name, product_id]
+    unique_constraints: []
+    foreign_keys:
+      - { columns: [store_name], ref_table: stores, ref_columns: [store_name], on_delete: RESTRICT, on_update: CASCADE }
+      - { columns: [product_id], ref_table: products, ref_columns: [product_id], on_delete: RESTRICT, on_update: CASCADE }
+    dtype:
+      product_id: { type: Integer }
+      store_name: { type: String }
+      quantity: { type: Integer }
+      last_updated: { type: DateTime }
