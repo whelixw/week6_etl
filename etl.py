@@ -23,6 +23,7 @@ engine = create_engine(
 
 VARCHAR_LEN = 191  # safer for utf8mb4 indexed columns in MySQL
 ARCHIVE_ROOT = Path("archive")
+DATA_ROOT = Path("data") # New constant for the single data folder
 
 
 # -------------------- UTILITIES --------------------
@@ -140,26 +141,25 @@ def load_to_sql(
 
 # -------------------- EXTRACT --------------------
 
-def extract() -> Tuple[Dict[str, pd.DataFrame], Dict[str, Path]]:
+def extract(data_root: Path = DATA_ROOT) -> Tuple[Dict[str, pd.DataFrame], Dict[str, Path]]:
     """
-    Read all inputs and return:
+    Read all inputs from the single 'data' folder and return:
     - raw_dfs: dataset key -> DataFrame
     - source_files: dataset key -> source Path (for archiving)
     """
-    # Base CSVs (relative paths preserved for archiving)
-    base_root = Path("data_setup") / "Data CSV"
-    api_root = Path("csvs_from_api")
+    # Ensure the data root exists (though read_csv will fail if files are missing)
+    data_root.mkdir(parents=True, exist_ok=True)
 
     source_files: Dict[str, Path] = {
-        "brands": base_root / "brands.csv",
-        "categories": base_root / "categories.csv",
-        "products": base_root / "products.csv",
-        "staff_raw": base_root / "staffs.csv",  # raw -> staff
-        "stocks": base_root / "stocks.csv",
-        "stores": base_root / "stores.csv",
-        "customers": api_root / "customers.csv",
-        "order_items": api_root / "order_items.csv",
-        "orders": api_root / "orders.csv",
+        "brands": data_root / "brands.csv",
+        "categories": data_root / "categories.csv",
+        "products": data_root / "products.csv",
+        "staff_raw": data_root / "staffs.csv",  # raw -> staff
+        "stocks": data_root / "stocks.csv",
+        "stores": data_root / "stores.csv",
+        "customers": data_root / "customers.csv",
+        "order_items": data_root / "order_items.csv",
+        "orders": data_root / "orders.csv",
     }
 
     raw_dfs: Dict[str, pd.DataFrame] = {}
@@ -287,7 +287,7 @@ def transform(
             "brand_id": types.Integer(),
             "category_id": types.Integer(),
             "model_year": types.Integer(),
-            "listed_price": types.Float(),
+            "list_price": types.Float(),
             "last_updated": types.DateTime(),
         },
         "customers": {
@@ -546,25 +546,32 @@ def archive_inputs(
     archive_root: Path = ARCHIVE_ROOT,
 ) -> None:
     """
-    Move processed CSVs into a timestamped folder, preserving relative structure.
+    Move processed CSVs into a timestamped folder, moving only the CSVs themselves.
     """
     ts_dir = archive_root / ts_folder_name(run_ts)
-    for key, src in source_files.items():
+    ts_dir.mkdir(parents=True, exist_ok=True) # Ensure the timestamped folder exists
+
+    for key, src_path in source_files.items():
         try:
-            dest = ts_dir / src
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(src), str(dest))
-            print(f"Archived {src} -> {dest}")
+            # We want to move just the filename into the archive folder
+            dest_path = ts_dir / src_path.name
+            shutil.move(str(src_path), str(dest_path))
+            print(f"Archived {src_path} -> {dest_path}")
         except FileNotFoundError:
             # If a file is already moved or missing, skip gracefully.
-            print(f"Warning: source file not found, skipping: {src}")
+            print(f"Warning: source file not found, skipping: {src_path}")
 
 
 # -------------------- RUN ETL --------------------
 
 if __name__ == "__main__":
+    # Create the data directory if it doesn't exist
+    DATA_ROOT.mkdir(exist_ok=True)
+    # You would place all your CSV files directly into the 'data/' directory now.
+    # e.g., 'data/brands.csv', 'data/customers.csv', etc.
+
     run_ts = floor_to_minute_utc()
-    raw_dfs, source_files = extract()
+    raw_dfs, source_files = extract(data_root=DATA_ROOT) # Pass DATA_ROOT to extract
     dfs, dtypes = transform(raw_dfs, run_ts)
     load(dfs, dtypes)
     archive_inputs(source_files, run_ts)

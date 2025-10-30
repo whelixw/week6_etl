@@ -38,23 +38,22 @@ engine = create_engine(
 )
 
 VARCHAR_LEN = 191  # safer for utf8mb4 indexed columns in MySQL
-BASE_ROOT = Path("data_setup") / "Data CSV"
-API_ROOT = Path("csvs_from_api")
 ARCHIVE_ROOT = Path("archive")
+DATA_ROOT = Path("data") # New constant for the single data folder
 
 # -------------------- DATASET CONFIG --------------------
 
-# Source file locations (monitored)
+# Source file locations (monitored) - ALL NOW FROM DATA_ROOT
 SOURCE_FILES: Dict[str, Path] = {
-    "brands": BASE_ROOT / "brands.csv",
-    "categories": BASE_ROOT / "categories.csv",
-    "products": BASE_ROOT / "products.csv",
-    "staff": BASE_ROOT / "staffs.csv",  # file is staffs.csv -> becomes 'staff'
-    "stocks": BASE_ROOT / "stocks.csv",
-    "stores": BASE_ROOT / "stores.csv",
-    "customers": API_ROOT / "customers.csv",
-    "order_items": API_ROOT / "order_items.csv",
-    "orders": API_ROOT / "orders.csv",
+    "brands": DATA_ROOT / "brands.csv",
+    "categories": DATA_ROOT / "categories.csv",
+    "products": DATA_ROOT / "products.csv",
+    "staff": DATA_ROOT / "staffs.csv",  # file is staffs.csv -> becomes 'staff'
+    "stocks": DATA_ROOT / "stocks.csv",
+    "stores": DATA_ROOT / "stores.csv",
+    "customers": DATA_ROOT / "customers.csv",
+    "order_items": DATA_ROOT / "order_items.csv",
+    "orders": DATA_ROOT / "orders.csv",
 }
 
 # Table names per dataset
@@ -102,7 +101,7 @@ DTYPES: Dict[str, Dict[str, Any]] = {
         "brand_id": types.Integer(),
         "category_id": types.Integer(),
         "model_year": types.Integer(),
-        "listed_price": types.Float(),
+        "list_price": types.Float(),
         "last_updated": types.DateTime(),
     },
     "customers": {
@@ -198,19 +197,21 @@ def archive_inputs(
     archive_root: Path = ARCHIVE_ROOT,
 ) -> None:
     """
-    Move processed CSVs (for the given keys) into a timestamped folder,
-    preserving relative structure.
+    Move processed CSVs (for the given keys) into a timestamped folder.
+    Only the CSV files are moved, not their original parent directories.
     """
     ts_dir = archive_root / ts_folder_name(run_ts)
+    ts_dir.mkdir(parents=True, exist_ok=True) # Ensure the timestamped folder exists
+
     for key in which_keys:
-        src = source_files[key]
+        src_path = source_files[key] # e.g., Path("data/brands.csv")
         try:
-            dest = ts_dir / src
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(src), str(dest))
-            print(f"Archived {src} -> {dest}")
+            # Construct destination path: archive_root/timestamp_folder/filename.csv
+            dest_path = ts_dir / src_path.name
+            shutil.move(str(src_path), str(dest_path))
+            print(f"Archived {src_path} -> {dest_path}")
         except FileNotFoundError:
-            print(f"Warning: source file not found, skipping: {src}")
+            print(f"Warning: source file not found, skipping: {src_path}")
 
 
 # -------------------- TRANSFORMS (dataset-specific) --------------------
@@ -253,7 +254,7 @@ def transform_dataset(name: str, df: pd.DataFrame) -> pd.DataFrame:
         )
         # keep store_name as-is if present
         df = normalize_strings(
-            df, ["staff_first_name", "staff_last_name", "email", "store_name"]
+            df, ["staff_first_name", "staff_last_name", "phone", "email", "store_name"]
         )
 
     elif name == "orders":
@@ -426,7 +427,7 @@ def upsert_from_stage(
 
 def read_new_csvs() -> Dict[str, pd.DataFrame]:
     """
-    Read any datasets that currently exist in the monitored folders.
+    Read any datasets that currently exist in the monitored DATA_ROOT folder.
     If a dataset's file is missing, it's skipped.
     """
     dfs: Dict[str, pd.DataFrame] = {}
@@ -502,6 +503,11 @@ def process_dataset_update(name: str, run_ts: datetime) -> Optional[Tuple[int, i
 
 
 def main() -> None:
+    # Ensure the data directory exists
+    DATA_ROOT.mkdir(exist_ok=True)
+    # Place all your CSV files directly into the 'data/' directory.
+    # E.g., 'data/brands.csv', 'data/customers.csv', etc.
+
     run_ts = floor_to_minute_utc()
 
     # Detect which datasets have new CSVs in monitored folders
