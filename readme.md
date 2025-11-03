@@ -13,7 +13,8 @@ This repository contains a set of Python scripts for Extract, Transform, Load (E
 *   **Modular Design:** Shared utility functions are consolidated into `utils.py` for consistency and maintainability.
 *   **`last_updated` Tracking:** Automatically adds and updates a `last_updated` timestamp (minute-precision UTC) for all loaded records.
 
-![img.png](img.png)
+<img width="1059" height="613" alt="image" src="https://github.com/user-attachments/assets/ded36037-b46c-4b69-aa6b-2af3ad2f4ae1" />
+
 
 ## Prerequisites
 
