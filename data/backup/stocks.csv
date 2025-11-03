@@ -1,0 +1,940 @@
+store_name,product_id,quantity
+Santa Cruz Bikes,1,27
+Santa Cruz Bikes,2,5
+Santa Cruz Bikes,3,6
+Santa Cruz Bikes,4,23
+Santa Cruz Bikes,5,22
+Santa Cruz Bikes,6,0
+Santa Cruz Bikes,7,8
+Santa Cruz Bikes,8,0
+Santa Cruz Bikes,9,11
+Santa Cruz Bikes,10,15
+Santa Cruz Bikes,11,8
+Santa Cruz Bikes,12,16
+Santa Cruz Bikes,13,13
+Santa Cruz Bikes,14,8
+Santa Cruz Bikes,15,3
+Santa Cruz Bikes,16,4
+Santa Cruz Bikes,17,2
+Santa Cruz Bikes,18,16
+Santa Cruz Bikes,19,4
+Santa Cruz Bikes,20,26
+Santa Cruz Bikes,21,24
+Santa Cruz Bikes,22,29
+Santa Cruz Bikes,23,9
+Santa Cruz Bikes,24,10
+Santa Cruz Bikes,25,10
+Santa Cruz Bikes,26,16
+Santa Cruz Bikes,27,21
+Santa Cruz Bikes,28,20
+Santa Cruz Bikes,29,13
+Santa Cruz Bikes,30,30
+Santa Cruz Bikes,31,2
+Santa Cruz Bikes,32,0
+Santa Cruz Bikes,33,10
+Santa Cruz Bikes,34,2
+Santa Cruz Bikes,35,18
+Santa Cruz Bikes,36,26
+Santa Cruz Bikes,37,12
+Santa Cruz Bikes,38,13
+Santa Cruz Bikes,39,2
+Santa Cruz Bikes,40,24
+Santa Cruz Bikes,41,10
+Santa Cruz Bikes,42,0
+Santa Cruz Bikes,43,2
+Santa Cruz Bikes,44,1
+Santa Cruz Bikes,45,15
+Santa Cruz Bikes,46,19
+Santa Cruz Bikes,47,21
+Santa Cruz Bikes,48,5
+Santa Cruz Bikes,49,8
+Santa Cruz Bikes,50,29
+Santa Cruz Bikes,51,2
+Santa Cruz Bikes,52,18
+Santa Cruz Bikes,53,17
+Santa Cruz Bikes,54,11
+Santa Cruz Bikes,55,11
+Santa Cruz Bikes,56,15
+Santa Cruz Bikes,57,1
+Santa Cruz Bikes,58,1
+Santa Cruz Bikes,59,22
+Santa Cruz Bikes,60,19
+Santa Cruz Bikes,61,30
+Santa Cruz Bikes,62,21
+Santa Cruz Bikes,63,4
+Santa Cruz Bikes,64,30
+Santa Cruz Bikes,65,10
+Santa Cruz Bikes,66,12
+Santa Cruz Bikes,67,19
+Santa Cruz Bikes,68,30
+Santa Cruz Bikes,69,4
+Santa Cruz Bikes,70,3
+Santa Cruz Bikes,71,25
+Santa Cruz Bikes,72,9
+Santa Cruz Bikes,73,7
+Santa Cruz Bikes,74,9
+Santa Cruz Bikes,75,23
+Santa Cruz Bikes,76,15
+Santa Cruz Bikes,77,16
+Santa Cruz Bikes,78,13
+Santa Cruz Bikes,79,13
+Santa Cruz Bikes,80,11
+Santa Cruz Bikes,81,25
+Santa Cruz Bikes,82,1
+Santa Cruz Bikes,83,13
+Santa Cruz Bikes,84,11
+Santa Cruz Bikes,85,23
+Santa Cruz Bikes,86,19
+Santa Cruz Bikes,87,27
+Santa Cruz Bikes,88,7
+Santa Cruz Bikes,89,9
+Santa Cruz Bikes,90,4
+Santa Cruz Bikes,91,8
+Santa Cruz Bikes,92,0
+Santa Cruz Bikes,93,22
+Santa Cruz Bikes,94,6
+Santa Cruz Bikes,95,25
+Santa Cruz Bikes,96,20
+Santa Cruz Bikes,97,20
+Santa Cruz Bikes,98,28
+Santa Cruz Bikes,99,28
+Santa Cruz Bikes,100,15
+Santa Cruz Bikes,101,17
+Santa Cruz Bikes,102,9
+Santa Cruz Bikes,103,13
+Santa Cruz Bikes,104,25
+Santa Cruz Bikes,105,7
+Santa Cruz Bikes,106,30
+Santa Cruz Bikes,107,20
+Santa Cruz Bikes,108,15
+Santa Cruz Bikes,109,30
+Santa Cruz Bikes,110,1
+Santa Cruz Bikes,111,11
+Santa Cruz Bikes,112,17
+Santa Cruz Bikes,113,24
+Santa Cruz Bikes,114,3
+Santa Cruz Bikes,115,10
+Santa Cruz Bikes,116,24
+Santa Cruz Bikes,117,15
+Santa Cruz Bikes,118,12
+Santa Cruz Bikes,119,17
+Santa Cruz Bikes,120,23
+Santa Cruz Bikes,121,19
+Santa Cruz Bikes,122,22
+Santa Cruz Bikes,123,8
+Santa Cruz Bikes,124,23
+Santa Cruz Bikes,125,22
+Santa Cruz Bikes,126,28
+Santa Cruz Bikes,127,12
+Santa Cruz Bikes,128,11
+Santa Cruz Bikes,129,21
+Santa Cruz Bikes,130,22
+Santa Cruz Bikes,131,20
+Santa Cruz Bikes,132,1
+Santa Cruz Bikes,133,9
+Santa Cruz Bikes,134,26
+Santa Cruz Bikes,135,15
+Santa Cruz Bikes,136,12
+Santa Cruz Bikes,137,12
+Santa Cruz Bikes,138,6
+Santa Cruz Bikes,139,17
+Santa Cruz Bikes,140,3
+Santa Cruz Bikes,141,21
+Santa Cruz Bikes,142,22
+Santa Cruz Bikes,143,19
+Santa Cruz Bikes,144,7
+Santa Cruz Bikes,145,5
+Santa Cruz Bikes,146,6
+Santa Cruz Bikes,147,8
+Santa Cruz Bikes,148,6
+Santa Cruz Bikes,149,1
+Santa Cruz Bikes,150,22
+Santa Cruz Bikes,151,24
+Santa Cruz Bikes,152,12
+Santa Cruz Bikes,153,25
+Santa Cruz Bikes,154,13
+Santa Cruz Bikes,155,8
+Santa Cruz Bikes,156,13
+Santa Cruz Bikes,157,25
+Santa Cruz Bikes,158,11
+Santa Cruz Bikes,159,18
+Santa Cruz Bikes,160,0
+Santa Cruz Bikes,161,17
+Santa Cruz Bikes,162,14
+Santa Cruz Bikes,163,0
+Santa Cruz Bikes,164,15
+Santa Cruz Bikes,165,16
+Santa Cruz Bikes,166,23
+Santa Cruz Bikes,167,28
+Santa Cruz Bikes,168,0
+Santa Cruz Bikes,169,25
+Santa Cruz Bikes,170,14
+Santa Cruz Bikes,171,3
+Santa Cruz Bikes,172,3
+Santa Cruz Bikes,173,2
+Santa Cruz Bikes,174,26
+Santa Cruz Bikes,175,2
+Santa Cruz Bikes,176,11
+Santa Cruz Bikes,177,19
+Santa Cruz Bikes,178,23
+Santa Cruz Bikes,179,16
+Santa Cruz Bikes,180,5
+Santa Cruz Bikes,181,19
+Santa Cruz Bikes,182,28
+Santa Cruz Bikes,183,11
+Santa Cruz Bikes,184,4
+Santa Cruz Bikes,185,3
+Santa Cruz Bikes,186,1
+Santa Cruz Bikes,187,16
+Santa Cruz Bikes,188,30
+Santa Cruz Bikes,189,6
+Santa Cruz Bikes,190,21
+Santa Cruz Bikes,191,21
+Santa Cruz Bikes,192,20
+Santa Cruz Bikes,193,30
+Santa Cruz Bikes,194,24
+Santa Cruz Bikes,195,1
+Santa Cruz Bikes,196,26
+Santa Cruz Bikes,197,22
+Santa Cruz Bikes,198,1
+Santa Cruz Bikes,199,2
+Santa Cruz Bikes,200,27
+Santa Cruz Bikes,201,16
+Santa Cruz Bikes,202,5
+Santa Cruz Bikes,203,4
+Santa Cruz Bikes,204,23
+Santa Cruz Bikes,205,9
+Santa Cruz Bikes,206,10
+Santa Cruz Bikes,207,27
+Santa Cruz Bikes,208,13
+Santa Cruz Bikes,209,22
+Santa Cruz Bikes,210,25
+Santa Cruz Bikes,211,13
+Santa Cruz Bikes,212,17
+Santa Cruz Bikes,213,14
+Santa Cruz Bikes,214,4
+Santa Cruz Bikes,215,1
+Santa Cruz Bikes,216,11
+Santa Cruz Bikes,217,11
+Santa Cruz Bikes,218,27
+Santa Cruz Bikes,219,30
+Santa Cruz Bikes,220,4
+Santa Cruz Bikes,221,7
+Santa Cruz Bikes,222,12
+Santa Cruz Bikes,223,3
+Santa Cruz Bikes,224,16
+Santa Cruz Bikes,225,24
+Santa Cruz Bikes,226,18
+Santa Cruz Bikes,227,19
+Santa Cruz Bikes,228,22
+Santa Cruz Bikes,229,27
+Santa Cruz Bikes,230,7
+Santa Cruz Bikes,231,25
+Santa Cruz Bikes,232,5
+Santa Cruz Bikes,233,5
+Santa Cruz Bikes,234,13
+Santa Cruz Bikes,235,7
+Santa Cruz Bikes,236,18
+Santa Cruz Bikes,237,26
+Santa Cruz Bikes,238,20
+Santa Cruz Bikes,239,28
+Santa Cruz Bikes,240,17
+Santa Cruz Bikes,241,17
+Santa Cruz Bikes,242,10
+Santa Cruz Bikes,243,11
+Santa Cruz Bikes,244,10
+Santa Cruz Bikes,245,3
+Santa Cruz Bikes,246,0
+Santa Cruz Bikes,247,15
+Santa Cruz Bikes,248,14
+Santa Cruz Bikes,249,27
+Santa Cruz Bikes,250,3
+Santa Cruz Bikes,251,2
+Santa Cruz Bikes,252,28
+Santa Cruz Bikes,253,16
+Santa Cruz Bikes,254,24
+Santa Cruz Bikes,255,13
+Santa Cruz Bikes,256,20
+Santa Cruz Bikes,257,17
+Santa Cruz Bikes,258,25
+Santa Cruz Bikes,259,10
+Santa Cruz Bikes,260,20
+Santa Cruz Bikes,261,3
+Santa Cruz Bikes,262,6
+Santa Cruz Bikes,263,21
+Santa Cruz Bikes,264,16
+Santa Cruz Bikes,265,28
+Santa Cruz Bikes,266,1
+Santa Cruz Bikes,267,27
+Santa Cruz Bikes,268,23
+Santa Cruz Bikes,269,22
+Santa Cruz Bikes,270,16
+Santa Cruz Bikes,271,6
+Santa Cruz Bikes,272,14
+Santa Cruz Bikes,273,20
+Santa Cruz Bikes,274,19
+Santa Cruz Bikes,275,28
+Santa Cruz Bikes,276,7
+Santa Cruz Bikes,277,13
+Santa Cruz Bikes,278,17
+Santa Cruz Bikes,279,17
+Santa Cruz Bikes,280,23
+Santa Cruz Bikes,281,11
+Santa Cruz Bikes,282,6
+Santa Cruz Bikes,283,10
+Santa Cruz Bikes,284,27
+Santa Cruz Bikes,285,20
+Santa Cruz Bikes,286,28
+Santa Cruz Bikes,287,2
+Santa Cruz Bikes,288,9
+Santa Cruz Bikes,289,2
+Santa Cruz Bikes,290,8
+Santa Cruz Bikes,291,9
+Santa Cruz Bikes,292,30
+Santa Cruz Bikes,293,18
+Santa Cruz Bikes,294,3
+Santa Cruz Bikes,295,24
+Santa Cruz Bikes,296,9
+Santa Cruz Bikes,297,22
+Santa Cruz Bikes,298,26
+Santa Cruz Bikes,299,18
+Santa Cruz Bikes,300,7
+Santa Cruz Bikes,301,10
+Santa Cruz Bikes,302,0
+Santa Cruz Bikes,303,12
+Santa Cruz Bikes,304,15
+Santa Cruz Bikes,305,23
+Santa Cruz Bikes,306,21
+Santa Cruz Bikes,307,17
+Santa Cruz Bikes,308,23
+Santa Cruz Bikes,309,7
+Santa Cruz Bikes,310,18
+Santa Cruz Bikes,311,20
+Santa Cruz Bikes,312,23
+Santa Cruz Bikes,313,14
+Baldwin Bikes,1,14
+Baldwin Bikes,2,16
+Baldwin Bikes,3,28
+Baldwin Bikes,4,2
+Baldwin Bikes,5,1
+Baldwin Bikes,6,11
+Baldwin Bikes,7,8
+Baldwin Bikes,8,1
+Baldwin Bikes,9,17
+Baldwin Bikes,10,13
+Baldwin Bikes,11,21
+Baldwin Bikes,12,2
+Baldwin Bikes,13,1
+Baldwin Bikes,14,18
+Baldwin Bikes,15,6
+Baldwin Bikes,16,20
+Baldwin Bikes,17,3
+Baldwin Bikes,18,13
+Baldwin Bikes,19,15
+Baldwin Bikes,20,20
+Baldwin Bikes,21,16
+Baldwin Bikes,22,0
+Baldwin Bikes,23,12
+Baldwin Bikes,24,16
+Baldwin Bikes,25,18
+Baldwin Bikes,26,2
+Baldwin Bikes,27,10
+Baldwin Bikes,28,25
+Baldwin Bikes,29,29
+Baldwin Bikes,30,17
+Baldwin Bikes,31,10
+Baldwin Bikes,32,13
+Baldwin Bikes,33,8
+Baldwin Bikes,34,24
+Baldwin Bikes,35,25
+Baldwin Bikes,36,15
+Baldwin Bikes,37,5
+Baldwin Bikes,38,18
+Baldwin Bikes,39,28
+Baldwin Bikes,40,15
+Baldwin Bikes,41,6
+Baldwin Bikes,42,16
+Baldwin Bikes,43,2
+Baldwin Bikes,44,24
+Baldwin Bikes,45,13
+Baldwin Bikes,46,18
+Baldwin Bikes,47,0
+Baldwin Bikes,48,20
+Baldwin Bikes,49,4
+Baldwin Bikes,50,7
+Baldwin Bikes,51,8
+Baldwin Bikes,52,23
+Baldwin Bikes,53,19
+Baldwin Bikes,54,6
+Baldwin Bikes,55,5
+Baldwin Bikes,56,20
+Baldwin Bikes,57,27
+Baldwin Bikes,58,15
+Baldwin Bikes,59,17
+Baldwin Bikes,60,1
+Baldwin Bikes,61,20
+Baldwin Bikes,62,4
+Baldwin Bikes,63,5
+Baldwin Bikes,64,30
+Baldwin Bikes,65,16
+Baldwin Bikes,66,22
+Baldwin Bikes,67,8
+Baldwin Bikes,68,23
+Baldwin Bikes,69,22
+Baldwin Bikes,70,6
+Baldwin Bikes,71,30
+Baldwin Bikes,72,1
+Baldwin Bikes,73,20
+Baldwin Bikes,74,23
+Baldwin Bikes,75,11
+Baldwin Bikes,76,20
+Baldwin Bikes,77,25
+Baldwin Bikes,78,4
+Baldwin Bikes,79,29
+Baldwin Bikes,80,27
+Baldwin Bikes,81,19
+Baldwin Bikes,82,4
+Baldwin Bikes,83,21
+Baldwin Bikes,84,22
+Baldwin Bikes,85,6
+Baldwin Bikes,86,24
+Baldwin Bikes,87,14
+Baldwin Bikes,88,8
+Baldwin Bikes,89,8
+Baldwin Bikes,90,26
+Baldwin Bikes,91,0
+Baldwin Bikes,92,22
+Baldwin Bikes,93,22
+Baldwin Bikes,94,2
+Baldwin Bikes,95,10
+Baldwin Bikes,96,22
+Baldwin Bikes,97,15
+Baldwin Bikes,98,14
+Baldwin Bikes,99,24
+Baldwin Bikes,100,12
+Baldwin Bikes,101,4
+Baldwin Bikes,102,12
+Baldwin Bikes,103,1
+Baldwin Bikes,104,26
+Baldwin Bikes,105,3
+Baldwin Bikes,106,7
+Baldwin Bikes,107,29
+Baldwin Bikes,108,29
+Baldwin Bikes,109,25
+Baldwin Bikes,110,7
+Baldwin Bikes,111,6
+Baldwin Bikes,112,1
+Baldwin Bikes,113,7
+Baldwin Bikes,114,12
+Baldwin Bikes,115,19
+Baldwin Bikes,116,17
+Baldwin Bikes,117,18
+Baldwin Bikes,118,25
+Baldwin Bikes,119,23
+Baldwin Bikes,120,16
+Baldwin Bikes,121,3
+Baldwin Bikes,122,11
+Baldwin Bikes,123,18
+Baldwin Bikes,124,4
+Baldwin Bikes,125,10
+Baldwin Bikes,126,13
+Baldwin Bikes,127,12
+Baldwin Bikes,128,28
+Baldwin Bikes,129,21
+Baldwin Bikes,130,17
+Baldwin Bikes,131,9
+Baldwin Bikes,132,6
+Baldwin Bikes,133,28
+Baldwin Bikes,134,13
+Baldwin Bikes,135,30
+Baldwin Bikes,136,8
+Baldwin Bikes,137,1
+Baldwin Bikes,138,16
+Baldwin Bikes,139,24
+Baldwin Bikes,140,13
+Baldwin Bikes,141,28
+Baldwin Bikes,142,24
+Baldwin Bikes,143,12
+Baldwin Bikes,144,4
+Baldwin Bikes,145,23
+Baldwin Bikes,146,3
+Baldwin Bikes,147,13
+Baldwin Bikes,148,27
+Baldwin Bikes,149,22
+Baldwin Bikes,150,7
+Baldwin Bikes,151,2
+Baldwin Bikes,152,21
+Baldwin Bikes,153,21
+Baldwin Bikes,154,9
+Baldwin Bikes,155,21
+Baldwin Bikes,156,8
+Baldwin Bikes,157,28
+Baldwin Bikes,158,0
+Baldwin Bikes,159,30
+Baldwin Bikes,160,4
+Baldwin Bikes,161,9
+Baldwin Bikes,162,18
+Baldwin Bikes,163,30
+Baldwin Bikes,164,9
+Baldwin Bikes,165,6
+Baldwin Bikes,166,27
+Baldwin Bikes,167,1
+Baldwin Bikes,168,29
+Baldwin Bikes,169,1
+Baldwin Bikes,170,2
+Baldwin Bikes,171,28
+Baldwin Bikes,172,16
+Baldwin Bikes,173,17
+Baldwin Bikes,174,8
+Baldwin Bikes,175,0
+Baldwin Bikes,176,26
+Baldwin Bikes,177,9
+Baldwin Bikes,178,1
+Baldwin Bikes,179,16
+Baldwin Bikes,180,3
+Baldwin Bikes,181,29
+Baldwin Bikes,182,21
+Baldwin Bikes,183,26
+Baldwin Bikes,184,0
+Baldwin Bikes,185,4
+Baldwin Bikes,186,16
+Baldwin Bikes,187,10
+Baldwin Bikes,188,27
+Baldwin Bikes,189,13
+Baldwin Bikes,190,18
+Baldwin Bikes,191,15
+Baldwin Bikes,192,0
+Baldwin Bikes,193,21
+Baldwin Bikes,194,15
+Baldwin Bikes,195,19
+Baldwin Bikes,196,28
+Baldwin Bikes,197,10
+Baldwin Bikes,198,0
+Baldwin Bikes,199,13
+Baldwin Bikes,200,11
+Baldwin Bikes,201,24
+Baldwin Bikes,202,1
+Baldwin Bikes,203,7
+Baldwin Bikes,204,25
+Baldwin Bikes,205,13
+Baldwin Bikes,206,9
+Baldwin Bikes,207,8
+Baldwin Bikes,208,12
+Baldwin Bikes,209,11
+Baldwin Bikes,210,10
+Baldwin Bikes,211,4
+Baldwin Bikes,212,22
+Baldwin Bikes,213,10
+Baldwin Bikes,214,7
+Baldwin Bikes,215,11
+Baldwin Bikes,216,19
+Baldwin Bikes,217,22
+Baldwin Bikes,218,26
+Baldwin Bikes,219,16
+Baldwin Bikes,220,6
+Baldwin Bikes,221,12
+Baldwin Bikes,222,30
+Baldwin Bikes,223,7
+Baldwin Bikes,224,4
+Baldwin Bikes,225,11
+Baldwin Bikes,226,5
+Baldwin Bikes,227,12
+Baldwin Bikes,228,7
+Baldwin Bikes,229,29
+Baldwin Bikes,230,25
+Baldwin Bikes,231,8
+Baldwin Bikes,232,11
+Baldwin Bikes,233,25
+Baldwin Bikes,234,12
+Baldwin Bikes,235,4
+Baldwin Bikes,236,7
+Baldwin Bikes,237,30
+Baldwin Bikes,238,6
+Baldwin Bikes,239,17
+Baldwin Bikes,240,19
+Baldwin Bikes,241,24
+Baldwin Bikes,242,2
+Baldwin Bikes,243,18
+Baldwin Bikes,244,1
+Baldwin Bikes,245,18
+Baldwin Bikes,246,10
+Baldwin Bikes,247,16
+Baldwin Bikes,248,26
+Baldwin Bikes,249,10
+Baldwin Bikes,250,23
+Baldwin Bikes,251,0
+Baldwin Bikes,252,20
+Baldwin Bikes,253,29
+Baldwin Bikes,254,7
+Baldwin Bikes,255,12
+Baldwin Bikes,256,8
+Baldwin Bikes,257,5
+Baldwin Bikes,258,10
+Baldwin Bikes,259,16
+Baldwin Bikes,260,20
+Baldwin Bikes,261,4
+Baldwin Bikes,262,8
+Baldwin Bikes,263,4
+Baldwin Bikes,264,13
+Baldwin Bikes,265,4
+Baldwin Bikes,266,18
+Baldwin Bikes,267,21
+Baldwin Bikes,268,3
+Baldwin Bikes,269,4
+Baldwin Bikes,270,15
+Baldwin Bikes,271,26
+Baldwin Bikes,272,1
+Baldwin Bikes,273,28
+Baldwin Bikes,274,15
+Baldwin Bikes,275,3
+Baldwin Bikes,276,9
+Baldwin Bikes,277,4
+Baldwin Bikes,278,8
+Baldwin Bikes,279,18
+Baldwin Bikes,280,11
+Baldwin Bikes,281,3
+Baldwin Bikes,282,8
+Baldwin Bikes,283,28
+Baldwin Bikes,284,6
+Baldwin Bikes,285,22
+Baldwin Bikes,286,3
+Baldwin Bikes,287,15
+Baldwin Bikes,288,13
+Baldwin Bikes,289,5
+Baldwin Bikes,290,29
+Baldwin Bikes,291,22
+Baldwin Bikes,292,22
+Baldwin Bikes,293,12
+Baldwin Bikes,294,7
+Baldwin Bikes,295,15
+Baldwin Bikes,296,8
+Baldwin Bikes,297,7
+Baldwin Bikes,298,27
+Baldwin Bikes,299,0
+Baldwin Bikes,300,13
+Baldwin Bikes,301,26
+Baldwin Bikes,302,6
+Baldwin Bikes,303,23
+Baldwin Bikes,304,6
+Baldwin Bikes,305,21
+Baldwin Bikes,306,17
+Baldwin Bikes,307,18
+Baldwin Bikes,308,15
+Baldwin Bikes,309,9
+Baldwin Bikes,310,5
+Baldwin Bikes,311,27
+Baldwin Bikes,312,2
+Baldwin Bikes,313,24
+Rowlett Bikes,1,14
+Rowlett Bikes,2,24
+Rowlett Bikes,3,0
+Rowlett Bikes,4,11
+Rowlett Bikes,5,3
+Rowlett Bikes,6,27
+Rowlett Bikes,7,12
+Rowlett Bikes,8,12
+Rowlett Bikes,9,23
+Rowlett Bikes,10,21
+Rowlett Bikes,11,30
+Rowlett Bikes,12,30
+Rowlett Bikes,13,19
+Rowlett Bikes,14,4
+Rowlett Bikes,15,22
+Rowlett Bikes,16,19
+Rowlett Bikes,17,22
+Rowlett Bikes,18,5
+Rowlett Bikes,19,24
+Rowlett Bikes,20,19
+Rowlett Bikes,21,8
+Rowlett Bikes,22,20
+Rowlett Bikes,23,8
+Rowlett Bikes,24,18
+Rowlett Bikes,25,15
+Rowlett Bikes,26,27
+Rowlett Bikes,27,21
+Rowlett Bikes,28,20
+Rowlett Bikes,29,11
+Rowlett Bikes,30,23
+Rowlett Bikes,31,10
+Rowlett Bikes,32,14
+Rowlett Bikes,33,14
+Rowlett Bikes,34,6
+Rowlett Bikes,35,3
+Rowlett Bikes,36,28
+Rowlett Bikes,37,30
+Rowlett Bikes,38,23
+Rowlett Bikes,39,22
+Rowlett Bikes,40,2
+Rowlett Bikes,41,25
+Rowlett Bikes,42,9
+Rowlett Bikes,43,26
+Rowlett Bikes,44,26
+Rowlett Bikes,45,1
+Rowlett Bikes,46,16
+Rowlett Bikes,47,14
+Rowlett Bikes,48,2
+Rowlett Bikes,49,4
+Rowlett Bikes,50,25
+Rowlett Bikes,51,2
+Rowlett Bikes,52,8
+Rowlett Bikes,53,6
+Rowlett Bikes,54,13
+Rowlett Bikes,55,5
+Rowlett Bikes,56,19
+Rowlett Bikes,57,9
+Rowlett Bikes,58,27
+Rowlett Bikes,59,0
+Rowlett Bikes,60,7
+Rowlett Bikes,61,28
+Rowlett Bikes,62,4
+Rowlett Bikes,63,8
+Rowlett Bikes,64,22
+Rowlett Bikes,65,1
+Rowlett Bikes,66,3
+Rowlett Bikes,67,6
+Rowlett Bikes,68,18
+Rowlett Bikes,69,29
+Rowlett Bikes,70,2
+Rowlett Bikes,71,13
+Rowlett Bikes,72,6
+Rowlett Bikes,73,3
+Rowlett Bikes,74,17
+Rowlett Bikes,75,29
+Rowlett Bikes,76,23
+Rowlett Bikes,77,23
+Rowlett Bikes,78,19
+Rowlett Bikes,79,29
+Rowlett Bikes,80,22
+Rowlett Bikes,81,18
+Rowlett Bikes,82,7
+Rowlett Bikes,83,23
+Rowlett Bikes,84,15
+Rowlett Bikes,85,15
+Rowlett Bikes,86,27
+Rowlett Bikes,87,16
+Rowlett Bikes,88,28
+Rowlett Bikes,89,22
+Rowlett Bikes,90,9
+Rowlett Bikes,91,8
+Rowlett Bikes,92,28
+Rowlett Bikes,93,18
+Rowlett Bikes,94,15
+Rowlett Bikes,95,14
+Rowlett Bikes,96,1
+Rowlett Bikes,97,28
+Rowlett Bikes,98,5
+Rowlett Bikes,99,19
+Rowlett Bikes,100,28
+Rowlett Bikes,101,17
+Rowlett Bikes,102,22
+Rowlett Bikes,103,10
+Rowlett Bikes,104,22
+Rowlett Bikes,105,1
+Rowlett Bikes,106,1
+Rowlett Bikes,107,11
+Rowlett Bikes,108,23
+Rowlett Bikes,109,24
+Rowlett Bikes,110,11
+Rowlett Bikes,111,29
+Rowlett Bikes,112,24
+Rowlett Bikes,113,23
+Rowlett Bikes,114,12
+Rowlett Bikes,115,25
+Rowlett Bikes,116,30
+Rowlett Bikes,117,23
+Rowlett Bikes,118,9
+Rowlett Bikes,119,29
+Rowlett Bikes,120,25
+Rowlett Bikes,121,4
+Rowlett Bikes,122,8
+Rowlett Bikes,123,15
+Rowlett Bikes,124,11
+Rowlett Bikes,125,2
+Rowlett Bikes,126,5
+Rowlett Bikes,127,4
+Rowlett Bikes,128,20
+Rowlett Bikes,129,10
+Rowlett Bikes,130,20
+Rowlett Bikes,131,23
+Rowlett Bikes,132,16
+Rowlett Bikes,133,16
+Rowlett Bikes,134,17
+Rowlett Bikes,135,15
+Rowlett Bikes,136,4
+Rowlett Bikes,137,17
+Rowlett Bikes,138,17
+Rowlett Bikes,139,21
+Rowlett Bikes,140,3
+Rowlett Bikes,141,4
+Rowlett Bikes,142,29
+Rowlett Bikes,143,9
+Rowlett Bikes,144,9
+Rowlett Bikes,145,11
+Rowlett Bikes,146,9
+Rowlett Bikes,147,3
+Rowlett Bikes,148,6
+Rowlett Bikes,149,1
+Rowlett Bikes,150,21
+Rowlett Bikes,151,1
+Rowlett Bikes,152,1
+Rowlett Bikes,153,7
+Rowlett Bikes,154,22
+Rowlett Bikes,155,25
+Rowlett Bikes,156,14
+Rowlett Bikes,157,12
+Rowlett Bikes,158,17
+Rowlett Bikes,159,6
+Rowlett Bikes,160,27
+Rowlett Bikes,161,11
+Rowlett Bikes,162,11
+Rowlett Bikes,163,11
+Rowlett Bikes,164,18
+Rowlett Bikes,165,19
+Rowlett Bikes,166,27
+Rowlett Bikes,167,8
+Rowlett Bikes,168,23
+Rowlett Bikes,169,3
+Rowlett Bikes,170,13
+Rowlett Bikes,171,11
+Rowlett Bikes,172,22
+Rowlett Bikes,173,15
+Rowlett Bikes,174,1
+Rowlett Bikes,175,3
+Rowlett Bikes,176,6
+Rowlett Bikes,177,2
+Rowlett Bikes,178,12
+Rowlett Bikes,179,20
+Rowlett Bikes,180,6
+Rowlett Bikes,181,8
+Rowlett Bikes,182,28
+Rowlett Bikes,183,26
+Rowlett Bikes,184,21
+Rowlett Bikes,185,15
+Rowlett Bikes,186,30
+Rowlett Bikes,187,2
+Rowlett Bikes,188,29
+Rowlett Bikes,189,20
+Rowlett Bikes,190,20
+Rowlett Bikes,191,23
+Rowlett Bikes,192,10
+Rowlett Bikes,193,5
+Rowlett Bikes,194,20
+Rowlett Bikes,195,20
+Rowlett Bikes,196,25
+Rowlett Bikes,197,8
+Rowlett Bikes,198,27
+Rowlett Bikes,199,5
+Rowlett Bikes,200,29
+Rowlett Bikes,201,30
+Rowlett Bikes,202,11
+Rowlett Bikes,203,6
+Rowlett Bikes,204,16
+Rowlett Bikes,205,3
+Rowlett Bikes,206,29
+Rowlett Bikes,207,29
+Rowlett Bikes,208,12
+Rowlett Bikes,209,1
+Rowlett Bikes,210,22
+Rowlett Bikes,211,3
+Rowlett Bikes,212,23
+Rowlett Bikes,213,10
+Rowlett Bikes,214,30
+Rowlett Bikes,215,12
+Rowlett Bikes,216,5
+Rowlett Bikes,217,4
+Rowlett Bikes,218,21
+Rowlett Bikes,219,29
+Rowlett Bikes,220,0
+Rowlett Bikes,221,25
+Rowlett Bikes,222,12
+Rowlett Bikes,223,29
+Rowlett Bikes,224,23
+Rowlett Bikes,225,12
+Rowlett Bikes,226,14
+Rowlett Bikes,227,22
+Rowlett Bikes,228,29
+Rowlett Bikes,229,7
+Rowlett Bikes,230,29
+Rowlett Bikes,231,6
+Rowlett Bikes,232,16
+Rowlett Bikes,233,9
+Rowlett Bikes,234,24
+Rowlett Bikes,235,1
+Rowlett Bikes,236,3
+Rowlett Bikes,237,16
+Rowlett Bikes,238,12
+Rowlett Bikes,239,29
+Rowlett Bikes,240,26
+Rowlett Bikes,241,8
+Rowlett Bikes,242,5
+Rowlett Bikes,243,7
+Rowlett Bikes,244,5
+Rowlett Bikes,245,10
+Rowlett Bikes,246,7
+Rowlett Bikes,247,3
+Rowlett Bikes,248,11
+Rowlett Bikes,249,6
+Rowlett Bikes,250,16
+Rowlett Bikes,251,10
+Rowlett Bikes,252,27
+Rowlett Bikes,253,15
+Rowlett Bikes,254,4
+Rowlett Bikes,255,17
+Rowlett Bikes,256,1
+Rowlett Bikes,257,25
+Rowlett Bikes,258,10
+Rowlett Bikes,259,0
+Rowlett Bikes,260,5
+Rowlett Bikes,261,24
+Rowlett Bikes,262,29
+Rowlett Bikes,263,21
+Rowlett Bikes,264,7
+Rowlett Bikes,265,22
+Rowlett Bikes,266,18
+Rowlett Bikes,267,12
+Rowlett Bikes,268,17
+Rowlett Bikes,269,26
+Rowlett Bikes,270,6
+Rowlett Bikes,271,23
+Rowlett Bikes,272,12
+Rowlett Bikes,273,19
+Rowlett Bikes,274,7
+Rowlett Bikes,275,23
+Rowlett Bikes,276,14
+Rowlett Bikes,277,26
+Rowlett Bikes,278,15
+Rowlett Bikes,279,15
+Rowlett Bikes,280,1
+Rowlett Bikes,281,2
+Rowlett Bikes,282,18
+Rowlett Bikes,283,1
+Rowlett Bikes,284,26
+Rowlett Bikes,285,2
+Rowlett Bikes,286,7
+Rowlett Bikes,287,26
+Rowlett Bikes,288,2
+Rowlett Bikes,289,2
+Rowlett Bikes,290,6
+Rowlett Bikes,291,10
+Rowlett Bikes,292,16
+Rowlett Bikes,293,14
+Rowlett Bikes,294,13
+Rowlett Bikes,295,9
+Rowlett Bikes,296,12
+Rowlett Bikes,297,22
+Rowlett Bikes,298,14
+Rowlett Bikes,299,29
+Rowlett Bikes,300,3
+Rowlett Bikes,301,29
+Rowlett Bikes,302,6
+Rowlett Bikes,303,13
+Rowlett Bikes,304,23
+Rowlett Bikes,305,11
+Rowlett Bikes,306,7
+Rowlett Bikes,307,17
+Rowlett Bikes,308,9
+Rowlett Bikes,309,30
+Rowlett Bikes,310,8
+Rowlett Bikes,311,23
+Rowlett Bikes,312,18
+Rowlett Bikes,313,0

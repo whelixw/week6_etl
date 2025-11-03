@@ -1,0 +1,11 @@
+name,last_name,email,phone,active,store_name,street,manager_id
+Fabiola,Jackson,fabiola.jackson@bikes.shop,(831) 555-5554,1,Santa Cruz Bikes,3700 Portola Drive,NULL
+Mireya,Copeland,mireya.copeland@bikes.shop,(831) 555-5555,1,Santa Cruz Bikes,3700 Portola Drive,1
+Genna,Serrano,genna.serrano@bikes.shop,(831) 555-5556,1,Santa Cruz Bikes,3700 Portola Drive,2
+Virgie,Wiggins,virgie.wiggins@bikes.shop,(831) 555-5557,1,Santa Cruz Bikes,3700 Portola Drive,2
+Jannette,David,jannette.david@bikes.shop,(516) 379-4444,1,Baldwin Bikes,4200 Chestnut Lane,1
+Marcelene,Boyer,marcelene.boyer@bikes.shop,(516) 379-4445,1,Baldwin Bikes,4200 Chestnut Lane,5
+Venita,Daniel,venita.daniel@bikes.shop,(516) 379-4446,1,Baldwin Bikes,4200 Chestnut Lane,5
+Kali,Vargas,kali.vargas@bikes.shop,(972) 530-5555,1,Rowlett Bikes,8000 Fairway Avenue,1
+Layla,Terrell,layla.terrell@bikes.shop,(972) 530-5556,1,Rowlett Bikes,8000 Fairway Avenue,7
+Bernardine,Houston,bernardine.houston@bikes.shop,(972) 530-5557,1,Rowlett Bikes,8000 Fairway Avenue,7
