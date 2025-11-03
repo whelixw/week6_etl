@@ -48,6 +48,8 @@ Before running the scripts, ensure you have the following installed:
     SQLAlchemy
     PyMySQL
     PyYAML
+    pymysql
+    cryptography
     ```
 
 3.  **MySQL Database Configuration:**
