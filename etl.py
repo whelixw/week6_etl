@@ -81,6 +81,7 @@ def load_all(cfg: Dict[str, Any], dfs: Dict[str, pd.DataFrame]) -> None:
         fks = ds_cfg.get("foreign_keys") or []
 
         print(f"Loading {name} -> {table} ...")
+        print(f"cols: {list(dfs[name].columns)}")
         load_to_sql(
             engine=engine,
             df=dfs[name],

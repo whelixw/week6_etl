@@ -164,7 +164,6 @@ datasets:
       item_id: { type: Integer }
       product_id: { type: Integer }
       quantity: { type: Integer }
-      list_price: { type: Float }
       discount: { type: Float }
       last_updated: { type: DateTime }
 

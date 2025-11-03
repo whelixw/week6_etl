@@ -306,10 +306,16 @@ def transform_dataset(name: str, df: pd.DataFrame) -> pd.DataFrame:
         )
 
     elif name == "order_items":
+        #print col names
+        #print("Original columns:", df.columns.tolist())
+        #drop list_price if present
+        df = df.drop(columns=["list_price"], errors="ignore")
         # backfill item_id as 1..n per order if missing or NA
         if "item_id" not in df.columns or df["item_id"].isna().any():
             df = df.sort_values(["order_id", "product_id"])
             df["item_id"] = df.groupby("order_id").cumcount() + 1
+       # print("Transformed columns:", df.columns.tolist())
+
 
     elif name == "stocks":
         # normalize potential store column variants
