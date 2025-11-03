@@ -13,6 +13,8 @@ This repository contains a set of Python scripts for Extract, Transform, Load (E
 *   **Modular Design:** Shared utility functions are consolidated into `utils.py` for consistency and maintainability.
 *   **`last_updated` Tracking:** Automatically adds and updates a `last_updated` timestamp (minute-precision UTC) for all loaded records.
 
+![img.png](img.png)
+
 ## Prerequisites
 
 Before running the scripts, ensure you have the following installed:
@@ -60,7 +62,7 @@ Before running the scripts, ensure you have the following installed:
     **Note:** For production environments, consider more secure methods for managing credentials than a plain text file (e.g., environment variables, a secrets management service).
 
 5.  **Data Folder:**
-    Create a directory named `data/` in the root of the repository. All your input CSV files (e.g., `brands.csv`, `products.csv`, `staffs.csv`) must be placed directly into this `data/` directory.
+    Create a directory named `data/` in the root of the repository. All your input CSV files (e.g., `brands.csv`, `products.csv`, `staffs.csv`) must be placed directly into this `data/` directory. A dataset is stored `backup` directory, and can be copied to data. The update and error dir contains files that should either update the database or had errors during processing.
 
 ## Configuration (`config.yaml`)
 
