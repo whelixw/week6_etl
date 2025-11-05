@@ -2,10 +2,25 @@ from typing import Optional
 from sqlalchemy import text, create_engine
 from sqlalchemy.exc import IntegrityError
 
-engine = create_engine(
-    "mysql+pymysql://app:AppPass!1@127.0.0.1:3306/mydb",
-    pool_pre_ping=True,
+from utils import (
+    _q,
+    archive_inputs,
+    build_dataset_dtypes,
+    floor_to_minute_utc,
+    get_archive_root,
+    get_engine,
+    get_load_sequence,
+    get_source_paths,
+    get_tables_map,
+    get_key_columns,
+    load_config,
+    transform_dataset,
 )
+
+cfg = load_config("config.yaml")
+engine = get_engine(cfg)
+
+
 
 
 def run_sql_test_transactional(description: str, sql_command: str, expected_error: bool = False,
